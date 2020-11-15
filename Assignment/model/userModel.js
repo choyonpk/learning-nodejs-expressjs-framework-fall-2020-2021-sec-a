@@ -23,7 +23,7 @@ module.exports= {
 		});
 	},
 	validate: function(user, callback){
-		var sql ="SELECT * FROM login where username=? and password=?";
+		var sql ="SELECT * FROM user where username=? and password=?";
 		db.getResults(sql, [user.username, user.password], function(results){
 			if(results.length > 0){
 				callback(results[0].u_type);
@@ -43,8 +43,8 @@ module.exports= {
 		});
 	},
 	insert: function(user, callback){
-		var sql = "insert into user values(?,?,?,?)";
-		db.execute(sql, [null, user.username, user.password, user.type], function(status){
+		var sql = "insert into user(name,username,password,gender,address,contact,u_type) values('"+user.name+"','"+user.username+"','"+user.password+"','"+user.gender+"','"+user.address+"','"+user.contact+"','"+user.user_type+"')";
+		db.execute(sql,function(status){
 			if(status){
 				callback(true);
 			}else{
@@ -73,3 +73,4 @@ module.exports= {
 		});
 	}
 }
+// [user.name, user.username, user.password,user.gender,user.address,user.contact, user.user_type]
