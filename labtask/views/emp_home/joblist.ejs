@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+</head>
+<body>
+	<h1> Employee list</h1>
+
+	<a href="/emp_home">Back</a> | 
+	<a href="/logout">logout</a> 
+	<br>
+
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>Com_Name</td>
+			<td>JOb_Title</td>
+			<td>Job_LOcation</td>
+			<td>Salary</td>
+			<td>Action</td>
+		</tr>
+
+		<% 
+			jobs.forEach( function(std){ %>
+			<tr>
+				<td><%= std.com_id %></td>
+				<td><%= std.Com_Name %></td>
+				<td><%= std.job_title %></td>
+				<td><%= std.job_location %></td>
+				<td><%= std.salary %></td>
+				<td>
+					<a href="/employee/edit/<%= std.com_id %>/<%= std.Com_Name %>/<%= std.job_title %>/<%= std.job_location %>/<%= std.salary %>">Edit</a> |
+					<a href="/employee/delete/<%= std.com_id %>/<%= std.Com_Name %>/<%= std.job_title %>/<%= std.job_location %>/<%= std.salary %>">Delete</a>
+				</td>
+			</tr>
+		<%
+			}); 
+		%>
+		
+	</table>
+
+</body>
+</html>
