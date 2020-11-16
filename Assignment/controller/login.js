@@ -17,13 +17,14 @@ router.post('/',(req,res)=>
    };
    um.validate(user,(status) => {
            if ( status== 1 ) {
-               res.redirect('/admin/home');             
+               req.session.username = req.body.username; 
+               res.redirect('/admin/home');           
            }
            else if(status== 2){
+            req.session.username = req.body.username; 
             res.redirect('/customer/home');             
         }
            else {
-            //   res.send("Wrong username or password");
                 res.redirect('/login');           
            }
        })

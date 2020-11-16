@@ -25,7 +25,8 @@ router.post('/',(req,res)=>
         res.redirect('/login');           
     }
     else{
-        res.redirect('/registration');             
+        res.redirect('/registration');     
+               
     }
    })
 

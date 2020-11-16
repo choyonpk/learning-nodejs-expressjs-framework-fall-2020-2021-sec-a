@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/home',(req,res)=>
 {
-    res.render('./admin/home');
+    res.render('./admin/home',{name : req.session.username});//have to add session check
 })
 
 
