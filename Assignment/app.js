@@ -3,6 +3,7 @@ const login = require('./controller/login');
 const admin_home = require('./controller/admin/admin_home');
 const customer_home = require('./controller/customer/customer_home');
 const registration = require('./controller/customer/registration');
+const product = require('./controller/admin/product');
 const logout = require('./controller/logout');
 
 const exSession 	= require('express-session');
@@ -20,10 +21,8 @@ app.use('/admin',admin_home);
 app.use('/customer',customer_home);
 app.use('/registration',registration);
 app.use('/logout',logout);
+app.use('/product',product);
 
 
 
-
-
-
-app.listen(2000);
+app.listen(3000);

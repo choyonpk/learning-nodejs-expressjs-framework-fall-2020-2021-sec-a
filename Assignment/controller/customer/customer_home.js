@@ -1,5 +1,5 @@
 const express = require('express');
-const { update } = require('../../model/userModel');
+// const { update } = require('../../model/userModel');
 const um = require.main.require('./model/userModel');
 
 const router = express.Router();
@@ -37,7 +37,8 @@ router.post('/update',(req,res)=>
         {
             res.redirect("/customer/home");
         }
-        else{
+        else
+        {
             res.redirect("/customer/update");
         }
     })
